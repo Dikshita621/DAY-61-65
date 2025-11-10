@@ -18,27 +18,27 @@ Output 3:
 2
 
 */
-
 #include <stdio.h>
 
 int main() {
     int n;
+    printf("Enter the size of the array: ");
     scanf("%d", &n);
-    int nums[n-1];
-    int sum = 0;
 
-    for(int i = 0; i < n-1; i++) {
+    int nums[n];
+    printf("Enter %d elements (integers between 0 to %d with one missing):\n", n, n);
+
+    int sum = n * (n + 1) / 2; // Sum of numbers from 0 to n
+    int array_sum = 0;
+
+    for (int i = 0; i < n; i++) {
         scanf("%d", &nums[i]);
-        sum += nums[i];
+        array_sum += nums[i];
     }
-    
-    // Sum of first n numbers from 0 to n
-    int totalSum = n * (n + 1) / 2;
-    
-    // Missing number is difference
-    int missing = totalSum - sum;
-    
-    printf("%d\n", missing);
-    
+
+    int missing = sum - array_sum;
+    printf("Missing number is: %d\n", missing);
+
     return 0;
 }
+
